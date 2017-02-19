@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:name => "viewport", content: "width=device-width, initial-scale=1.0"}/
+    %link{ rel: "stylesheet", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" }/
+    %script{ src: 'https://use.fontawesome.com/f4cbdb5826.js' }
+    %title Hotspot
+  %body
+    .col-md-4.col-md-offset-4
+      %main
+        = yield
+
+- if try(:facebook)
+  :javascript
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : "#{@company.fb.api_key.present? ? @company.fb.api_key : ENV['FACEBOOK_KEY']}",
+        xfbml      : true,
+        version    : 'v2.4'
+      });
+      FB.Event.subscribe('edge.create',
+        function(response) {
+          location.replace('/facebook/subscribe')
+        }
+      );
+    };
+
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/ru_RU/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));

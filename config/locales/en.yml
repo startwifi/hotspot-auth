@@ -1,2 +1,12 @@
 en:
+  cancel: 'Cancel'
+  facebook:
+    join:
+      header: 'Facebook: like for continue'
+    post:
+      header: 'Facebook: share post for continue'
+      placeholder: 'Your comment'
+      share: 'Post to Facebook'
+      cancel: 'Cancel'
+  today: 'Today, %{time}'
   welcome: 'This is a free wifi hotspot. You need to sign in with a social network'

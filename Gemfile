@@ -1,15 +1,25 @@
 source 'https://rubygems.org'
 
 gem 'activerecord'
+gem 'browser'
+gem 'dotenv'
 gem 'haml'
 gem 'i18n'
+gem 'odnoklassniki'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'koala'
 gem 'pg'
+gem 'rack-flash3'
 gem 'rake'
+gem 'rest-client'
 gem 'require_all'
 gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'sinatra-contrib'
+gem 'twitter'
 
 group :development do
   gem 'byebug'
+  gem 'shotgun'
 end
