@@ -9,4 +9,10 @@
     .preloader
       %span.spinner
     .col-md-12
+      - if flash.keys.any?
+        - name = flash.keys.first
+        - msg = flash[name]
+        %div{ class: "alert alert-#{name == :notice ? 'success' : 'danger'}" }
+          %div{ id: "flash_#{name}" }
+            = msg
       = yield

@@ -8,7 +8,7 @@ class VisitorsController < ApplicationController
     return render_404 unless @company || @company&.active
     if @company.sms.action.eql?('ident') || @company.sms.action.eql?('ident_auth')
       device = @company.devices.find_by_mac(session[:mac])
-      return redirect_to sms_authorize_path unless device
+      return redirect to('/sms/authorize') unless device
       return unless @company.sms.action.eql?('ident') && @company.sms.adv
       haml :'widgets/sms/adv'
     end
