@@ -20,6 +20,18 @@ gem 'sinatra-contrib'
 gem 'twitter'
 
 group :development do
-  gem 'byebug'
   gem 'shotgun'
+end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'factory_girl'
+  gem 'faker'
+  gem 'rack-test'
+  gem 'rspec'
+  gem 'shoulda-matchers'
+end
+
+group :development, :test do
+  gem 'pry-byebug'
 end
