@@ -6,3 +6,7 @@ default: &default
 development:
   <<: *default
   database: hotspot_development
+
+test:
+  <<: *default
+  database: hotspot_test

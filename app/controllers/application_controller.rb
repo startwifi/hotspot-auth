@@ -1,4 +1,5 @@
 require 'rack-flash'
+require 'sinatra/activerecord'
 
 class ApplicationController < Sinatra::Base
   configure do
@@ -8,7 +9,6 @@ class ApplicationController < Sinatra::Base
     use Rack::Flash
 
     set :logging, true
-    set :database_file, 'config/database.yml'
     set :public_folder, 'public'
     set :views, 'app/views'
     set :session_secret, 'secret'
