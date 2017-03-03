@@ -16,6 +16,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     arel (7.1.4)
     backports (3.6.8)
+    bond (0.5.1)
     browser (2.3.0)
     buftok (0.2.0)
     byebug (9.0.6)
@@ -104,6 +105,14 @@ GEM
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
+    ripl (0.7.1)
+      bond (~> 0.5.1)
+    ripl-multi_line (0.3.1)
+      ripl (>= 0.3.6)
+    ripl-rack (0.2.1)
+      rack (>= 1.0)
+      rack-test (~> 0.6.2)
+      ripl (>= 0.7.0)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -139,6 +148,11 @@ GEM
     slop (3.6.0)
     thread_safe (0.3.5)
     tilt (2.0.6)
+    tux (0.3.0)
+      ripl (>= 0.3.5)
+      ripl-multi_line (>= 0.2.4)
+      ripl-rack (>= 0.2.0)
+      sinatra (>= 1.2.1)
     twitter (6.0.0)
       addressable (~> 2.5)
       buftok (~> 0.2.0)
@@ -184,6 +198,7 @@ DEPENDENCIES
   sinatra
   sinatra-activerecord
   sinatra-contrib
+  tux
   twitter
 
 BUNDLED WITH

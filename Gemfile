@@ -16,7 +16,7 @@ gem 'rest-client'
 gem 'require_all'
 gem 'sinatra'
 gem 'sinatra-activerecord'
-gem 'sinatra-contrib'
+gem 'sinatra-contrib', require: false
 gem 'twitter'
 
 group :development do
@@ -34,4 +34,5 @@ end
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'tux'
 end

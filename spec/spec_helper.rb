@@ -1,3 +1,6 @@
+ENV['SINATRA_ENV'] = 'test'
+ENV['RACK_ENV'] = 'test'
+
 require_relative '../config/environment'
 require 'rack/test'
 require 'rspec'
@@ -7,8 +10,6 @@ require 'omniauth/test'
 require 'database_cleaner'
 require 'shoulda/matchers'
 require 'sinatra'
-
-ENV['SINATRA_ENV'] = 'test'
 
 Dir[File.join(settings.root, '../spec/support/**/*.rb')].each { |f| require f }
 
