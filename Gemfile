@@ -21,6 +21,11 @@ gem 'sinatra-contrib', require: false
 gem 'twitter'
 
 group :development do
+  gem 'brakeman', require: false
+  gem 'haml-lint', require: false
+  gem 'overcommit', require: false
+  gem 'rubocop', require: false
+  gem 'ruby_css_lint', require: false
   gem 'shotgun'
 end
 

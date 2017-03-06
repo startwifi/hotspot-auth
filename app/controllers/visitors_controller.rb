@@ -7,7 +7,7 @@ class VisitorsController < ApplicationController
   get '/' do
     return render_404 unless @company || @company&.active
     if @company.sms && (@company.sms.action.eql?('ident') || @company.sms.action.eql?('ident_auth'))
-      device = @company.devices.find_by_mac(session[:mac])
+      device = @company.devices.find_by(mac: session[:mac])
       return redirect to('/sms/authorize') unless device
       return unless @company.sms.action.eql?('ident') && @company.sms.adv
       haml :'widgets/sms/adv'
@@ -18,7 +18,7 @@ class VisitorsController < ApplicationController
   private
 
   def load_company
-    @company = Company.find_by_token(session[:company_token])
+    @company = Company.find_by(token: session[:company_token])
   end
 
   def save_params

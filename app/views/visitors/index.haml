@@ -4,25 +4,25 @@
   %ul.list-inline
     - unless @company.fb.action.eql?('disabled')
       %li
-        %a{ href: '/facebook', class: 'social' }
+        %a.social{ href: '/facebook' }
           %img{ src: 'images/facebook.png' }
     - unless @company.tw.action.eql?('disabled')
       %li
-        %a{ href: '/twitter', class: 'social' }
+        %a.social{ href: '/twitter' }
           %img{ src: 'images/twitter.png' }
     - unless @company.vk.action.eql?('disabled')
       %li
-        %a{ href: '/vkontakte', class: 'social' }
+        %a.social{ href: '/vkontakte' }
           %img{ src: 'images/vkontakte.png' }
     - unless @company.in.action.eql?('disabled')
       %li
-        %a{ href: '/instagram', class: 'social' }
+        %a.social{ href: '/instagram' }
           %img{ src: 'images/instagram.png' }
     - unless @company.ok.action.eql?('disabled')
       %li
-        %a{ href: '/odnoklassniki', class: 'social' }
+        %a.social{ href: '/odnoklassniki' }
           %img{ src: 'images/ok.png' }
     - if @company.sms && (@company.sms.action.eql?('auth') || @company.sms.action.eql?('ident_auth'))
       %li
-        %a{ href: '/sms/authorize', class: 'social' }
+        %a.social{ href: '/sms/authorize' }
           %img{ src: 'images/sms.png' }

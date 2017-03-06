@@ -42,7 +42,7 @@ class SessionsController < ApplicationController
   private
 
   def load_company
-    @company = Company.find_by_token(session[:company_token])
+    @company = Company.find_by(token: session[:company_token])
     render_404 unless @company
   end
 
