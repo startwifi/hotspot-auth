@@ -1,21 +1,31 @@
 class EventsController < ApplicationController
   get '/:provider/subscribe' do
     case current_user.provider
-    when 'fb'
+    when 'facebook'
+      current_user.add_event(:join)
+      redirect to(router_url)
+    when 'vkontakte'
       current_user.add_event(:join)
       redirect to(router_url)
     end
   end
 
   get '/:provider/post' do
-    case params[:provider]
+    case current_user.provider
     when 'facebook'
       post_facebook
+    when 'vkontakte'
+      post_vkontakte
     end
   end
 
   get '/:provider/auth' do
     current_user.add_event(:auth)
+    redirect to(router_url)
+  end
+
+  get '/:provider/joined' do
+    current_user.add_event(:member)
     redirect to(router_url)
   end
 
@@ -28,9 +38,12 @@ class EventsController < ApplicationController
     redirect to('/failure')
   end
 
-  def is_member
-    current_user.add_event(:member)
-    redirect to router_url
+  def post_vkontakte
+    VkPhotoUploadService.new(current_user.company, session[:user_token]).call
+    current_user.add_event(:photo)
+    redirect to(router_url)
+  rescue
+    redirect to('/')
   end
 
   private

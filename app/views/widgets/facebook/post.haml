@@ -2,7 +2,7 @@
   .panel.panel-default
     .panel-heading
       %i.fa.fa-facebook-square
-      = t('.facebook.post.header')
+      = t('facebook.post.header')
     .panel-body
       %div
         %b= current_user.name
@@ -14,7 +14,7 @@
         %img{ src: @company.fb.post_image_url, alt: @company.name, class: 'img-responsive' }
     .panel-footer
       %button.btn.btn-primary.btn-block{ type: :submit }
-        = t('.facebook.post.share')
+        = t('facebook.post.share')
 .text-center
   %a{ href: '/' }
     = t(:cancel)

@@ -22,7 +22,7 @@
       %li
         %a{ href: '/odnoklassniki', class: 'social' }
           %img{ src: 'images/ok.png' }
-    - if @company.sms.action.eql?('auth') || @company.sms.action.eql?('ident_auth')
+    - if @company.sms && (@company.sms.action.eql?('auth') || @company.sms.action.eql?('ident_auth'))
       %li
         %a{ href: '/sms/authorize', class: 'social' }
           %img{ src: 'images/sms.png' }

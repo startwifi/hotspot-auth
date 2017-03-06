@@ -7,6 +7,11 @@ en:
       header: 'Facebook: share post for continue'
       placeholder: 'Your comment'
       share: 'Post to Facebook'
-      cancel: 'Cancel'
+  vkontakte:
+    join:
+      header: 'Vkontakte: subscribe for continue'
+    post:
+      header: 'Vkontakte: share post for continue'
+      share: 'Share post'
   today: 'Today, %{time}'
   welcome: 'This is a free wifi hotspot. You need to sign in with a social network'

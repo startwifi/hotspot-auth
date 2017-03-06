@@ -20,18 +20,20 @@ class OmniauthSetupService
         consumer_secret: @api[:secret]
       }
     when 'odnoklassniki'
-      {
-        client_id: @api[:key],
-        client_secret: @api[:secret],
+      default_params.merge(
         public_key: @api[:public],
         redirect_uri: ENV['OK_REDIRECT_URI']
-      }
+      )
     else
-      {
-        client_id: @api[:key],
-        client_secret: @api[:secret],
-      }
+      default_params
     end
+  end
+
+  def default_params
+    {
+      client_id: @api[:key],
+      client_secret: @api[:secret]
+    }
   end
 
   def prepare_credentials
