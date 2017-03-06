@@ -5,6 +5,7 @@ gem 'browser'
 gem 'dotenv'
 gem 'haml'
 gem 'i18n'
+gem 'localeapp', require: false
 gem 'odnoklassniki'
 gem 'omniauth'
 gem 'omniauth-facebook'
