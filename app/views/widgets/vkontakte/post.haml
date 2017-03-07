@@ -1,0 +1,18 @@
+.panel.panel-default
+  .panel-heading
+    %i.fa.fa-vk
+    = t('vkontakte.post.header')
+  .panel-body
+    %div
+      %b= current_user.name
+    %div
+      %small= t(:today, time: Time.now.strftime('%H:%M'))
+    %div= @company.vk.post_text
+    %div
+      %img{ src: @company.vk.post_image_url, alt: @company.name, class: 'img-responsive' }
+  .panel-footer
+    %a.btn.btn-primary.btn-block{ href: '/vkontakte/post' }
+      = t('vkontakte.post.share')
+.text-center
+  %a{ href: '/' }
+    = t(:cancel)

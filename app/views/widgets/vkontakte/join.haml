@@ -1,0 +1,14 @@
+.panel.panel-default
+  .panel-heading
+    %i.fa.fa-vk
+    = t('vkontakte.join.header')
+  .panel-body
+    %h4= @company.name
+    #vk_subscribe
+.text-center
+  %a{ href: '/' }
+    = t(:cancel)
+
+:javascript
+  VK.Widgets.Subscribe("vk_subscribe", {mode: 2, soft: 1}, "-#{@company.vk.group_id}");
+  VK.Observer.subscribe("widgets.subscribed", function f(){ location.replace("/vkontakte/subscribe") });

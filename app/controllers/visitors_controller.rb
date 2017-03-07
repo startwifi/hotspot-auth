@@ -6,7 +6,7 @@ class VisitorsController < ApplicationController
 
   get '/' do
     return render_404 unless @company || @company&.active
-    if @company.sms.action.eql?('ident') || @company.sms.action.eql?('ident_auth')
+    if @company.sms && (@company.sms.action.eql?('ident') || @company.sms.action.eql?('ident_auth'))
       device = @company.devices.find_by_mac(session[:mac])
       return redirect to('/sms/authorize') unless device
       return unless @company.sms.action.eql?('ident') && @company.sms.adv
@@ -22,10 +22,10 @@ class VisitorsController < ApplicationController
   end
 
   def save_params
-    return unless params[:hs] && params[:hs][:mac_esc]
-    session[:company_token] = params[:hs][:token]
-    session[:link] = params[:hs][:link_login_only]
-    session[:dst] = params[:hs][:dst]
-    session[:mac] = mac_address(params[:hs][:mac_esc])
+    return unless params[:me]
+    session[:company_token] = params[:t]
+    session[:link] = params[:l]
+    session[:dst] = params[:d]
+    session[:mac] = mac_address(params[:me])
   end
 end
