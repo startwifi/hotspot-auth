@@ -1,0 +1,17 @@
+ru:
+  cancel: Отмена
+  facebook:
+    join:
+      header: 'Facebook: Like для продолжения'
+    post:
+      header: 'Facebook: поделиться для продолжения'
+      placeholder: Ваше сообщение
+      share: Поделиться на Facebook
+  today: Сегодня, %{time}
+  vkontakte:
+    join:
+      header: 'Вконтакте: вступить в группу'
+    post:
+      header: 'Вконтакте: поделиться фото'
+      share: Поделиться фото
+  welcome: Это бесплатная Wi-Fi точка доступа. Для подключения к интернет достаточно войти через одну из социальных сетей
