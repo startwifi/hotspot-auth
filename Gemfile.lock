@@ -102,6 +102,9 @@ GEM
       rack (>= 1.6.2, < 3)
     omniauth-facebook (4.0.0)
       omniauth-oauth2 (~> 1.2)
+    omniauth-instagram (1.0.2)
+      omniauth (~> 1)
+      omniauth-oauth2 (~> 1)
     omniauth-oauth (1.1.0)
       oauth
       omniauth (~> 1.0)
@@ -235,6 +238,7 @@ DEPENDENCIES
   odnoklassniki
   omniauth
   omniauth-facebook
+  omniauth-instagram
   omniauth-twitter
   omniauth-vkontakte
   overcommit

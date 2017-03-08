@@ -5,8 +5,9 @@ class WidgetsController < ApplicationController
     @company = current_user.company
     case current_user.provider
     when 'facebook' then widget_facebook
-    when 'vkontakte' then widget_vkontakte
+    when 'instagram' then widget_instagram
     when 'twitter' then widget_twitter
+    when 'vkontakte' then widget_vkontakte
     end
   end
 
@@ -23,15 +24,8 @@ class WidgetsController < ApplicationController
     end
   end
 
-  def widget_vkontakte
-    case @company.vk.action
-    when 'post'
-      haml :'widgets/vkontakte/post', layout: :'layouts/social'
-    when 'join'
-      render_vkontakte_join
-    when 'auth'
-      redirect to('/vkontakte/auth')
-    end
+  def widget_instagram
+    redirect to('/instagram/auth')
   end
 
   def widget_twitter
@@ -42,6 +36,17 @@ class WidgetsController < ApplicationController
       haml :'widgets/twitter/join', layout: :'layouts/social'
     when 'auth'
       redirect to('/twitter/auth')
+    end
+  end
+
+  def widget_vkontakte
+    case @company.vk.action
+    when 'post'
+      haml :'widgets/vkontakte/post', layout: :'layouts/social'
+    when 'join'
+      render_vkontakte_join
+    when 'auth'
+      redirect to('/vkontakte/auth')
     end
   end
 
