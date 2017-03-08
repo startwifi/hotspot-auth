@@ -8,6 +8,13 @@ ru:
       placeholder: Ваше сообщение
       share: Поделиться на Facebook
   today: Сегодня, %{time}
+  twitter:
+    join:
+      follow: Следовать за нами
+      header: 'Twitter: следовать за нами'
+    post:
+      header: 'Twitter: поделиться твитом'
+      share: Поделиться твитом
   vkontakte:
     join:
       header: 'Вконтакте: вступить в группу'

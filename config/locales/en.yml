@@ -8,6 +8,13 @@ en:
       placeholder: Your comment
       share: Post to Facebook
   today: Today, %{time}
+  twitter:
+    join:
+      follow: Follow us
+      header: 'Twitter: follow us'
+    post:
+      header: 'Twitter: share tweet'
+      share: Share tweet
   vkontakte:
     join:
       header: 'Vkontakte: subscribe for continue'

@@ -6,6 +6,7 @@ class WidgetsController < ApplicationController
     case current_user.provider
     when 'facebook' then widget_facebook
     when 'vkontakte' then widget_vkontakte
+    when 'twitter' then widget_twitter
     end
   end
 
@@ -30,6 +31,17 @@ class WidgetsController < ApplicationController
       render_vkontakte_join
     when 'auth'
       redirect to('/vkontakte/auth')
+    end
+  end
+
+  def widget_twitter
+    case @company.tw.action
+    when 'post'
+      haml :'widgets/twitter/post', layout: :'layouts/social'
+    when 'join'
+      haml :'widgets/twitter/join', layout: :'layouts/social'
+    when 'auth'
+      redirect to('/twitter/auth')
     end
   end
 
