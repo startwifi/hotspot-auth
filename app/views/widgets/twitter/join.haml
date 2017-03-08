@@ -1,0 +1,15 @@
+.panel.panel-default
+  .panel-heading
+    %i.fa.fa-twitter-square
+    = t('twitter.join.header')
+  .panel-body
+    %h4= @company.name
+    %h4
+      %a{ href: "https://twitter.com/#{@company.tw.group_name}" }
+        @#{@company.tw.group_name}
+  .panel-footer
+    %a.btn.btn-primary.btn-block{ href: '/twitter/subscribe' }
+      = t('twitter.join.follow')
+.text-center
+  %a{ href: '/' }
+    = t(:cancel)

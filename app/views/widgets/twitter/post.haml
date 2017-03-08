@@ -1,0 +1,18 @@
+.panel.panel-default
+  .panel-heading
+    %i.fa.fa-twitter-square
+    = t('twitter.post.header')
+  .panel-body
+    %div
+      %b= current_user.name
+    %div
+      %small= t(:today, time: Time.now.strftime('%H:%M'))
+    %div= @company.tw.post_text
+    %div
+      %img.img-responsive{ src: @company.tw.post_image_url, alt: @company.name }
+  .panel-footer
+    %a.btn.btn-primary.btn-block{ href: '/twitter/post' }
+      = t('twitter.post.share')
+.text-center
+  %a{ href: '/' }
+    = t(:cancel)

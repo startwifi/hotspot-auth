@@ -19,6 +19,8 @@ class SessionsController < ApplicationController
     provider :vkontakte,
       setup: true,
       scope: 'email, photos'
+    provider :twitter,
+      setup: true
   end
 
   get '/:provider/callback' do
