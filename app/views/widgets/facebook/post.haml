@@ -8,10 +8,10 @@
         %b= current_user.name
       %div
         %small= t(:today, time: Time.now.strftime('%H:%M'))
-      %textarea{ name: :post_text, rows: 3, placeholder: t('facebook.post.placeholder'), class: 'form-control' }
+      %textarea.form-control{ name: :post_text, rows: 3, placeholder: t('facebook.post.placeholder') }
       %div= @company.fb.post_text
       %div
-        %img{ src: @company.fb.post_image_url, alt: @company.name, class: 'img-responsive' }
+        %img.img-responsive{ src: @company.fb.post_image_url, alt: @company.name }
     .panel-footer
       %button.btn.btn-primary.btn-block{ type: :submit }
         = t('facebook.post.share')
