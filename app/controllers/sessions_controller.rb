@@ -16,11 +16,14 @@ class SessionsController < ApplicationController
     provider :facebook, setup: true,
       scope: 'public_profile, user_birthday, user_likes, publish_actions, email',
       info_fields: 'birthday, name, link, gender, email'
+    provider :instagram,
+      setup: true,
+      scope: 'likes comments relationships'
+    provider :twitter,
+      setup: true
     provider :vkontakte,
       setup: true,
       scope: 'email, photos'
-    provider :twitter,
-      setup: true
   end
 
   get '/:provider/callback' do
