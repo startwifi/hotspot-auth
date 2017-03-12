@@ -1,5 +1,15 @@
 en:
+  activemodel:
+    errors:
+      models:
+        sms_sender:
+          attributes:
+            phone:
+              blank: can't be blank
+              improbable_phone: is improbable
+              invalid: is invalid
   cancel: Cancel
+  errors: Form contains errors
   facebook:
     join:
       header: 'Facebook: like for continue'
@@ -7,6 +17,17 @@ en:
       header: 'Facebook: share post for continue'
       placeholder: Your comment
       share: Post to Facebook
+  sms:
+    code: Auth code
+    confirm: Confirm
+    continue: Next
+    format: 'Format:'
+    header: You have to authorize with SMS
+    phone: Mobile number
+    placeholder: 123206241212
+    success: 'Verification code has been sent on %{phone}
+
+'
   today: Today, %{time}
   twitter:
     join:

@@ -19,6 +19,9 @@ class SessionsController < ApplicationController
     provider :instagram,
       setup: true,
       scope: 'likes comments relationships'
+    provider :sms,
+      smsauth_url: '/sms/auth',
+      uid_field: 'otp_phone'
     provider :twitter,
       setup: true
     provider :vkontakte,

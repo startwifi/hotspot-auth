@@ -1,0 +1,19 @@
+.text-center
+  %h1= @company.name
+  %p= t('sms.header')
+  %ul.list-inline
+.row
+  .col-md-offset-4.col-md-4
+    - if @sms.errors.any?
+      #error_explanation
+        %h2= t(:errors)
+        %ul
+          - @sms.errors.full_messages.each do |error|
+            %li= error
+    %form{ action: '/sms/send', method: :post }
+      .form-group
+        %label{ for: :phone }= t('sms.phone')
+        %input.form-control{ name: :phone, type: :tel, placeholder: t('sms.placeholder') }
+        %span.help-block= "#{t('sms.format')} #{t('sms.placeholder')}"
+      .form-group
+        %button.btn.btn-primary{ type: :submit }= t('sms.continue')

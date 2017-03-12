@@ -30,12 +30,26 @@ class EventsController < ApplicationController
   end
 
   get '/:provider/auth' do
+    return auth_sms if current_user.provider == 'sms'
     current_user.add_event(:auth)
     redirect to(router_url)
   end
 
   get '/:provider/joined' do
     current_user.add_event(:member)
+    redirect to(router_url)
+  end
+
+  def auth_sms
+    case params[:provider]
+    when 'sms_ident_auth'
+      return current_user.add_event(:auth) if session[:sms_auth_success].present?
+      current_user.add_event(:sms_ident)
+    when 'sms_ident'
+      current_user.add_event(:sms_ident)
+    when 'sms_ident_adv'
+      current_user.add_event(:sms_ident_adv)
+    end
     redirect to(router_url)
   end
 

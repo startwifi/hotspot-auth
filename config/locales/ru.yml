@@ -1,5 +1,15 @@
 ru:
+  activemodel:
+    errors:
+      models:
+        sms_sender:
+          attributes:
+            phone:
+              blank: не может быть пустым
+              improbable_phone: является недействительным номером
+              invalid: является недействительным номером
   cancel: Отмена
+  errors: Форма содержит ошибки
   facebook:
     join:
       header: 'Facebook: Like для продолжения'
@@ -7,6 +17,15 @@ ru:
       header: 'Facebook: поделиться для продолжения'
       placeholder: Ваше сообщение
       share: Поделиться на Facebook
+  sms:
+    code: Код авторизации
+    confirm: Подтвердить
+    continue: Продолжить
+    format: 'Формат:'
+    header: Для продолжения необходимо авторизироваться с помощью кода из sms-сообщения, полученного на ваш мобильный телефон
+    phone: Мобильный телефон
+    placeholder: 123206241212
+    success: На номер %{phone} был выслан код подтверждения
   today: Сегодня, %{time}
   twitter:
     join:
