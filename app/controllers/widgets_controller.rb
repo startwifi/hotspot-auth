@@ -6,6 +6,7 @@ class WidgetsController < ApplicationController
     case current_user.provider
     when 'facebook' then widget_facebook
     when 'instagram' then widget_instagram
+    when 'sms' then widget_sms
     when 'twitter' then widget_twitter
     when 'vkontakte' then widget_vkontakte
     end
@@ -26,6 +27,24 @@ class WidgetsController < ApplicationController
 
   def widget_instagram
     redirect to('/instagram/auth')
+  end
+
+  def widget_sms
+    case @company.sms.action
+    when 'auth'
+      redirect to('/sms/auth')
+    when 'ident_auth'
+      current_user.add_event(:sms_ident)
+      session[:sms_auth_success] = true
+      haml :'visitors/index'
+    when 'ident'
+      if @company.sms.adv
+        current_user.add_event(:sms_ident)
+        haml :'widgets/sms/adv', layout: :'layouts/social'
+      else
+        redirect to('/sms/sms_ident')
+      end
+    end
   end
 
   def widget_twitter
